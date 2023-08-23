@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="'IE=edge">
+        <meta name="'viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <input type="text" placeholder="0" id="output-screen" >
+                <button onclick="Clear()" id="clear">Cl</button>
+                <button onclick="del()" id="delete">DEL</button>
+                <button onclick="display('%')" id="mod">%</button>
+                <button onclick="display('/')" id="divi">/</button>
+                <button onclick="display('7')" id="seven">7</button>
+                <button onclick="display('8')" id="eight">8</button>
+                <button onclick="display('9')" id="nine">9</button>
+                <button onclick="display('*')" id="mult">*</button>
+                <button onclick="display('4')" id="four">4</button>
+                <button onclick="display('5')" id="five">5</button>
+                <button onclick="display('6')" id="six">6</button>
+                <button onclick="display('-')" id="sub">-</button>
+                <button onclick="display('1')" id="one">1</button>
+                <button onclick="display('2')" id="two">2</button>
+                <button onclick="display('3')" id="three">3</button>
+                <button onclick="display('+')" id="add">+</button>
+                <button onclick="display('.')" id="dot">.</button>
+                <button onclick="display('0')" id="zero">0</button>
+                <button onclick="Calculate()" class="equal">=</button>
+
+            </div>
+        </div>
+
+        <script>
+            let outputScreen = document.getElementById("output-screen");
+
+            function display(num){
+                outputScreen.value += num;
+            }
+
+            function Calculate(){
+                try{
+                    outputScreen.value = eval(outputScreen.value);
+                }
+                catch(err)
+                {
+                    alert("Invalid")
+                }
+            }
+
+            function Clear(){
+                outputScreen.value ="";
+            }
+
+            function del(){
+                outputScreen.value = outputScreen.value.slice(0,-1);
+            }
+
+        </script>
+    </body>
+</html>
